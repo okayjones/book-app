@@ -6,29 +6,33 @@
     <link rel="stylesheet" href="/styles/styles.css"> 
     <title>Book App</title>
 </head>
-<body>
-    <h1>Search</h1>
-    <form action="/searches" method="POST">
-        <fieldset>
-            
-          <legend>Search by Title of Author</legend>
-          <label>
-            <input type="text" name ="search" placeholder="Enter a title or author">
-          </label>
 
-          <label>
-            <span>Title</span>
-            <input type="radio" name ="search_type" value="title">
-          </label>
-          
-          <label>
-            <span>Author</span>
-            <input type="radio" name="search_type" value="author">
-          </label>
-          
-          <button>Search the Google Books API</button>
-        </fieldset>
-      </form>
+<header>Best Books!</header>
+
+<form action="/searches" method="POST">
+  <fieldset>
+
+    <legend>Search by Title of Author</legend>
+    <div id="form">
+      <label>
+        <input type="text" name="search" placeholder="Enter a title or author" id="search">
+      </label>
+
+      <label class="radio">
+        <span>Title</span>
+        <input type="radio" name="search_type" value="title">
+      </label>
+
+      <label class="radio">
+        <span>Author</span>
+        <input type="radio" name="search_type" value="author">
+      </label>
+
+      <button>Search the Google Books API</button>
+    </div>
+  </fieldset>
+</form>
+<footer></footer>
 </body>
 </html>
 

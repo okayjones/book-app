@@ -1,0 +1,67 @@
+form {
+    margin: 0 auto;
+    width: 100%;
+}
+
+
+form legend{
+ width: 100%;
+ line-height: 7.6vh;
+ background-color: grey;
+}
+
+form .radio, form #search{
+    display: block;
+    text-align: left;
+    line-height: 7.5vh;
+    width: 80vw;
+    color: black;
+    margin: 20px auto;
+    padding: 5px;
+    background-color: white;
+    border-radius: 3px;
+}
+
+#form {
+    padding: 15px;
+}
+
+#search {
+    border: 0;
+}
+
+button {
+    width: 80vw;
+    padding: 5px;
+    line-height: 7.5vh;
+    border-radius: 3px;
+    color: white;
+    background-color: black;
+}
+
+header, footer {
+    background-color: black;
+}
+
+header {
+    line-height: 5vh;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+
+footer {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    height: 5vh;
+}
+
+
+section {
+    padding: 5vh;
+    margin: 10%;
+    background-color: lightgrey;
+    border-radius: 3px;
+}
