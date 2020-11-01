@@ -1,0 +1,6 @@
+header {
+  display: flex;
+  flex: left;
+  padding-left: .8vw;
+  font-weight: bold;
+}

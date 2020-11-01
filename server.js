@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 app.use(express.static('./public')); // where server wil look for pages
 app.use(cors());
-app.use(express.urlencoded({ extended : true }));
+app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 
 
@@ -43,9 +43,9 @@ function searchSubmitHandler(req, res) {
     const API = "https://www.googleapis.com/books/v1/volumes";
     const author = (req.body.search_type === 'author') ? req.body.search_type : undefined;
     const title = (req.body.search_type === 'title') ? req.body.search_type : undefined;
-    
+
     const queryParams = {
-        q: 'in'+req.body.search_type+':'+req.body.search,
+        q: 'in' + req.body.search_type + ':' + req.body.search,
         maxResults: 10
     };
 
@@ -53,7 +53,7 @@ function searchSubmitHandler(req, res) {
         .query(queryParams)
         .then(books => {
             let bookArr = books.body.items.map(book => new Book(book));
-            res.status(200).render('pages/searches/show', {books: bookArr});
+            res.status(200).render('pages/searches/show', { books: bookArr });
         })
         .catch(error => {
             errorHandler(req, res, error);
@@ -70,3 +70,4 @@ function Book(book) {
 
 // Start the server
 app.listen(PORT, () => console.log(`Server now listening on port ${PORT}.`));
+

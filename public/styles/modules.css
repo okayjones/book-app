@@ -7,18 +7,19 @@ form {
 form legend{
  width: 100%;
  line-height: 7.6vh;
- background-color: grey;
+ background-color:lightgray;
 }
 
 form .radio, form #search{
     display: block;
     text-align: left;
-    line-height: 7.5vh;
+    height: 7.0vh;
+    line-height: 7.0vh;
     width: 80vw;
     color: black;
     margin: 20px auto;
     padding: 5px;
-    background-color: white;
+    background-color: lightgray;
     border-radius: 3px;
 }
 
@@ -26,8 +27,9 @@ form .radio, form #search{
     padding: 15px;
 }
 
-#search {
+ form #search {
     border: 0;
+    background-color: white;
 }
 
 button {
@@ -35,7 +37,7 @@ button {
     padding: 5px;
     line-height: 7.5vh;
     border-radius: 3px;
-    color: white;
+    color: darkred;
     background-color: black;
 }
 
@@ -63,5 +65,15 @@ section {
     padding: 5vh;
     margin: 10%;
     background-color: lightgrey;
+    height: 500px;
     border-radius: 3px;
+}
+
+p {
+    height: 50px;
+    overflow:scroll;
+}
+
+img {
+    width: 60vw;
 }
