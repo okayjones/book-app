@@ -22,6 +22,7 @@ app.set('view engine', 'ejs');
 // Routes
 app.get('/searches/new', searchHandler);
 app.get('/error', errorHandler);
+app.get('/searches', searchSubmitHandler);
 app.post('/searches', searchSubmitHandler);
 app.get('/', homeHandler);
 
