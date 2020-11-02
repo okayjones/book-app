@@ -7,18 +7,21 @@
     <title>Book App</title>
 </head>
 <body>
-    <header>Best Books!</header>
+    <header>📚 Best Books! 📚</header>
 
-    <h1>Search Results</h1>
+    <main>
+        <h1>Search Results</h1>
 
-    <% books.forEach(book => { %>
+        <% books.forEach(book => { %>
         <section>
             <img src="<%= book.img%>">
             <h2><%= book.title %></h3>
-            <h3><%= book.author %></h4>
-            <p><%= book.desc %></p>
+                <h3><%= book.author %></h4>
+                    <p><%= book.desc %></p>
         </section>
-    <% }) %>
-<footer></footer>
+        <% }) %>
+    </main>
+
+    <footer></footer>
 </body>
 </html>

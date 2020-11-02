@@ -1,67 +1,75 @@
-form {
-    margin: 0 auto;
-    width: 100%;
-}
 
+/* Form  */
 
-form legend{
- width: 100%;
- line-height: 7.6vh;
- background-color: grey;
-}
-
-form .radio, form #search{
-    display: block;
-    text-align: left;
-    line-height: 7.5vh;
-    width: 80vw;
-    color: black;
-    margin: 20px auto;
-    padding: 5px;
-    background-color: white;
-    border-radius: 3px;
-}
-
-#form {
-    padding: 15px;
+legend {
+    margin: 25px auto;
 }
 
 #search {
     border: 0;
+    width: 100%;
 }
+
+label {
+    width: 100%;
+    margin: 15px;
+    padding: 5px;
+    border: 1px dashed grey;
+}
+
+.radio {
+    text-align:left;
+}
+
+/* Button */
 
 button {
-    width: 80vw;
-    padding: 5px;
-    line-height: 7.5vh;
-    border-radius: 3px;
+    height: 3rem;
+    background: firebrick;
     color: white;
-    background-color: black;
-}
-
-header, footer {
-    background-color: black;
-}
-
-header {
-    line-height: 5vh;
+    margin: 15px auto;
+    border: 0;
     width: 100%;
-    left: 0;
-    top: 0;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
 }
 
-footer {
-    position: fixed;
-    width: 100%;
-    left: 0;
-    bottom: 0;
-    height: 5vh;
+button:hover {
+    transform: scale(1.1);
+    background-color: white;
+    color: firebrick;
 }
 
+/* Books */
 
 section {
-    padding: 5vh;
-    margin: 10%;
-    background-color: lightgrey;
-    border-radius: 3px;
+    margin: 25px auto;
+    border: 3px dashed lightgrey;
+    padding: 10px;
+}
+
+h2 {
+    font-size: 1.1rem;
+    font-weight: 400;
+    padding: 10px;
+    color: firebrick;
+}
+
+h3 {
+    padding: 10px;
+    font-weight: 500;
+}
+
+p {
+    padding: 10px;
+    font-size: .8rem;
+}
+
+img {
+    margin: 10px;
+}
+
+/* Error */
+
+#error {
+    color: firebrick;
 }
