@@ -17,3 +17,8 @@ header {
     color:white;
     font-size: 1.3rem;
 }
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
