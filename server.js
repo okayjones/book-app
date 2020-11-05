@@ -44,9 +44,6 @@ function homeHandler(req, res) {
 
 function searchSubmitHandler(req, res) {
     const API = "https://www.googleapis.com/books/v1/volumes";
-    const author = (req.body.search_type === 'author') ? req.body.search_type : undefined;
-    const title = (req.body.search_type === 'title') ? req.body.search_type : undefined;
-
     const queryParams = {
         q: 'in' + req.body.search_type + ':' + req.body.search,
         maxResults: 10
