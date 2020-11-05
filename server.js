@@ -15,7 +15,7 @@ const PORT = process.env.PORT || 3000;
 // Setup application
 const app = express();
 const client = new pg.Client(process.env.DATABASE_URL)
-app.use(express.static('./public')); // where server wil look for pages
+app.use(express.static('./public'));
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
@@ -52,27 +52,22 @@ function searchSubmitHandler(req, res) {
     superagent.get(API)
         .query(queryParams)
         .then(books => {
-            let bookArr = books.body.items.map(book => new Book(book));
-            console.log(books.body.items[0].volumeInfo);
-            console.log(books.body.items[1].volumeInfo);
+            let bookArr = books.body.items.map(book => new Book(book.volumeInfo));
             res.status(200).render('pages/searches/show', { books: bookArr });
         })
-        .catch(error => {
-            errorHandler(req, res, error);
-        });
+        .catch(error => errorHandler(req, res, error));
 }
 
 // Constructors
 function Book(book) {
-    this.title = (book.volumeInfo.title) ? book.volumeInfo.title : 'No Title Avaliable';
-    this.author = (book.volumeInfo.authors) ? book.volumeInfo.authors : 'No Author Avaliable';
-    this.desc = (book.volumeInfo.description) ? book.volumeInfo.description : 'No Description Avaliable';
-    this.img = (book.volumeInfo.imageLinks) ? book.volumeInfo.imageLinks.smallThumbnail : 'https://i.imgur.com/J5LVHEL.jpg';
-    this.isbn = (book.volumeInfo.industryIdentifiers[0].identifier) ? book.volumeInfo.industryIdentifiers[0].identifier : 'ISBN NOT found';
+    this.title = book.title || 'No Title Avaliable';
+    this.author = book.authors || 'No Author Avaliable';
+    this.desc = book.description || 'No Description Avaliable';
+    this.img = book.imageLinks.smallThumbnail || 'https://i.imgur.com/J5LVHEL.jpg';
+    this.isbn = book.industryIdentifiers[0].identifier || 'ISBN NOT found';
 }
 
 // Connect to DB
 client.connect();
 // Start the server
 app.listen(PORT, () => console.log(`Server now listening on port ${PORT}.`));
-
