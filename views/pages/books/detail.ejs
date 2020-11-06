@@ -1,0 +1,13 @@
+<% books.forEach(book => { %>
+<section>
+  <img src="<%= book.img%>">
+  <% console.log(book) %>
+                <h2><%= book.title %></h2>
+                  <h2><%= book.rows %></h2>
+                    <h3><%= book.author %></h4>
+                        <p><%= book.description %></p>
+                        <p> <%= book.isbn %></p> 
+                        <a href="/"><button> Show All Books</button></a>
+                      </section>
+                      <% }) %>
+          
