@@ -10,8 +10,16 @@
 <body>
     <header><a href="/">📚 Best Books! 📚</a></header>
     <main>
-        <section>Welcome to Book App!</section>
-        <a href="/searches/new"><button>Search</button></a>
+        <div><%= saved.length %> Saved Books</div>
+        <% saved.forEach(book => { %>
+            <section>
+                <img src="<%= book.img%>">
+                <h2><%= book.title %></h3>
+                    <h3><%= book.author %></h4>
+                        <p><%= book.description %></p>
+            </section>
+            <a href="/books/<%=book.id%>">Show Details</a>
+            <% }) %>
     </main>
 <footer></footer>
 </body>
