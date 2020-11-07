@@ -81,3 +81,17 @@ img {
 #error {
     color: firebrick;
 }
+
+/* Badge */
+#badge {
+    overflow: auto;
+    border-radius: 100%;
+    color: #fff;
+    background: darkcyan;
+    display: inline-flex;
+    width: 2rem;
+    height: 2rem;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+}
