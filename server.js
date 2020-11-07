@@ -5,6 +5,7 @@ const express = require('express');
 const superagent = require('superagent');
 const cors = require('cors');
 const pg = require('pg');
+const methodOverride = require('method-override');
 
 // Environment variables
 require('dotenv').config();
@@ -19,6 +20,7 @@ app.use(express.static('./public'));
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
+app.use(methodOverride('_method'));
 
 // Routes
 app.get('/', homeHandler);
@@ -27,6 +29,8 @@ app.get('/books/:id', singleHandler);
 app.get('/error', errorHandler);
 app.post('/searches', searchSubmitHandler);
 app.post('/add', addHandler);
+app.put('/edit/:id', editHandler);
+app.delete('/delete/:id', deleteHandler);
 app.get('*', notFoundHandler);
 
 // Route Handlers
@@ -67,6 +71,25 @@ function searchSubmitHandler(req, res) {
             let bookArr = books.body.items.map(book => new Book(book.volumeInfo));
             res.status(200).render('pages/searches/show', { books: bookArr });
         })
+        .catch(error => errorHandler(req, res, error));
+}
+
+function editHandler(req, res) {
+    const SQL = 
+        'UPDATE books SET author = $1, title =$2, isbn =$3, img=$4, description=$5 WHERE id = $6';
+    const params = [req.body.author, req.body.title, req.body.isbn, req.body.img, req.body.description, req.params.id];
+
+    client.query(SQL, params)
+        .then(res.status(200).redirect(`/books/${req.params.id}`))
+        .catch(error => errorHandler(req, res, error));
+}
+
+function deleteHandler(req, res) {
+    const SQL = 'DELETE FROM books WHERE id = $1'
+    const params = [req.params.id];
+
+    client.query(SQL, params)
+        .then(res.status(200).redirect('/'))
         .catch(error => errorHandler(req, res, error));
 }
 

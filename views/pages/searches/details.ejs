@@ -14,10 +14,21 @@
         <div class="book" id="detail">
             <% books.forEach(book => { %>
             <%- include('../../books/detail', {book: book}) %>
+            <div id="modal">
+                <form action="/edit/<%=book.id%>?_method=PUT" method="post" id="editForm">
+                <%- include('../../books/form', {book: book}) %>
+                </form>
+            </div>
+            <button id="editButton">Update Details</button>         
+            <form action="/delete/<%=book.id%>?_method=DELETE" method="post">
+                <button type="submit">Delete Book</button> 
+            </form>
             <% }) %>
         </div>
+        <a href="/"><button id="showAll"> Show All Books</button></a>
     </main>
     <footer></footer>
+    <script src="/js/modal.js"></script>
 </body>
 
 </html>

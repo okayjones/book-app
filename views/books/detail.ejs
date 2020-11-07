@@ -6,8 +6,6 @@
   
   <!-- Only shows for #detail-->
   <h4 id="isbn">ISBN: <%= book.isbn %></h4>
-  <a href="/"><button id="showAll"> Show All Books</button></a>
-
 
   <!-- Only shows for #index-->
   <a href="/books/<%=book.id%>"><button id="showDetails">Show Details</button></a>
@@ -16,11 +14,11 @@
   <!-- Only shows for #show-->
   <form action="/add" method='post' id="saveBook">
     <fieldset>
-      <input type="hidden" name='author' value="<%= book.title %>">
-      <input type="hidden" name='title' value='<%= book.author%>'>
-      <input type="hidden" name='description' value="<%= book.description%>">
-      <input type="hidden" name='isbn' value="<%= book.isbn%>">
-      <input type="hidden" name='img' value="<%= book.img%>">
+      <input type="text" name='title' value="<%= book.title %>">
+      <input type="text" name='author' value='<%= book.author%>'>
+      <input type="text" name='description' value="<%= book.description%>">
+      <input type="text" name='isbn' value="<%= book.isbn%>">
+      <input type="text" name='img' value="<%= book.img%>">
     </fieldset>
     <button type='submit'>Save Book</button>
   </form>
