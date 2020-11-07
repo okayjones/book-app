@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <%- include('../../layout/head') %>
 </head>
+
 <body>
     <header>
         <%- include('../../layout/header') %>
     </header>
     <main>
-        <h1>Search Results</h1>
-        <%- include('../../books/detail') %>
-        </main>
+        <h1>Book Details</h1>
+        <div class="book" id="detail">
+            <% books.forEach(book => { %>
+            <%- include('../../books/detail', {book: book}) %>
+            <% }) %>
+        </div>
+    </main>
     <footer></footer>
 </body>
+
 </html>

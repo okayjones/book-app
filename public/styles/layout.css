@@ -1,5 +1,6 @@
 main {
     width: 80vw;
+    max-width: 800px;
     height: 100%;
     margin: 100px auto;
 }
