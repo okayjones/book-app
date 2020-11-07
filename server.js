@@ -21,52 +21,45 @@ app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 
 // Routes
-app.get('/searches/new', searchHandler);
-app.get('/error', errorHandler);
-app.get('/searches', searchSubmitHandler);
-app.post('/searches', searchSubmitHandler);
 app.get('/', homeHandler);
-app.get('/books/:id',singleHandler);
-app.post('/add',addHandler);
+app.get('/searches/new', searchHandler);
+app.get('/books/:id', singleHandler);
+app.get('/error', errorHandler);
+app.post('/searches', searchSubmitHandler);
+app.post('/add', addHandler);
+app.get('*', notFoundHandler);
 
 // Route Handlers
-function addHandler (req,res) {
+function searchHandler(req, res) { res.status(200).render('pages/searches/new') };
+function errorHandler(req, res, error) { res.status(500).render('pages/error') };
+function notFoundHandler(req, res) { res.status(404).render('pages/404') };
+
+function addHandler(req, res) {
     const sqlPlace = `INSERT INTO books (author, title, isbn, img, description) VALUES ($1,$2,$3,$4,$5) returning *`;
-    const params = [req.body.author,req.body.title,req.body.isbn,req.body.img,req.body.description];
-    client.query(sqlPlace,params)
-    .then (book => res.status(200).redirect(`/books/${book.rows[0].id}`))
-    .catch(error => errorHandler(req, res, error));
+    const params = [req.body.author, req.body.title, req.body.isbn, req.body.img, req.body.description];
+    client.query(sqlPlace, params)
+        .then(book => res.status(200).redirect(`/books/${book.rows[0].id}`))
+        .catch(error => errorHandler(req, res, error));
 }
 
-function singleHandler(req,res){
+function singleHandler(req, res) {
     const bookId = req.params.id;
     const sqlGet = `SELECT * FROM books where id= $1`;
-    client.query(sqlGet,[bookId])
-    .then(books => res.status(200).render(`pages/searches/details`, { books : books.rows}))
-    .catch(error => errorHandler(req, res, error));
-}
-
-function searchHandler(req, res) {
-    res.status(200).render('pages/searches/new');
-}
-
-function errorHandler(req, res, error) {
-    console.log(error);
-    res.status(500).render('pages/error');
+    client.query(sqlGet, [bookId])
+        .then(books => res.status(200).render(`pages/searches/details`, { books: books.rows }))
+        .catch(error => errorHandler(req, res, error));
 }
 
 function homeHandler(req, res) {
     const sqlGet = ` SELECT * FROM books`;
     client.query(sqlGet)
-        .then(saved => {
-                res.status(200).render('pages/index', { saved: saved.rows });
-        })
+        .then(saved => res.status(200).render('pages/index', { saved: saved.rows }))
         .catch(error => errorHandler(req, res, error));
 }
 
 function searchSubmitHandler(req, res) {
     const API = "https://www.googleapis.com/books/v1/volumes";
-    const queryParams = {q: 'in' + req.body.search_type + ':' + req.body.search};
+    const queryParams = { q: 'in' + req.body.search_type + ':' + req.body.search };
 
     superagent.get(API)
         .query(queryParams)

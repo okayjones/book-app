@@ -68,7 +68,7 @@ p {
     padding: 10px;
     font-size: .8rem;
     overflow: auto;
-    height: 15vh;
+    max-height: 15vh;
     margin: 10px;
 }
 
