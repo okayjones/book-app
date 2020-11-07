@@ -18,7 +18,7 @@ header {
     font-size: 1.3rem;
 }
 
-a {
+header a {
     color: inherit;
     text-decoration: inherit;
 }

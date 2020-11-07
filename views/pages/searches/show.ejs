@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/styles.css"> 
-    <link rel ="icon" type="image/png" href="/favicon.png">
-    <title>Book App</title>
+    <%- include('../../layout/head') %>
 </head>
+
 <body>
-    <header><a href="/">📚 Best Books! 📚</a></header>
+    <header>
+        <%- include('../../layout/header') %>
+    </header>
 
     <main>
         <h1>Search Results</h1>
@@ -16,22 +16,23 @@
         <section>
             <img src="<%= book.img%>">
             <h2><%= book.title %></h3>
-                <h3><%= book.author %></h4>
-                    <p><%= book.description %></p>
-                    <form action="/add" method='post'>
-                        <fieldset> 
-                         <input type="hidden" name='author' value="<%= book.title %>">
-                         <input type="hidden" name='title' value='<%= book.author%>'>
-                         <input type="hidden" name='description' value= "<%= book.description%>">
-                         <input type="hidden" name='isbn' value= "<%= book.isbn%>">
-                         <input type="hidden" name='img' value= "<%= book.img%>">
-                        </fieldset>
-                        <button type ='submit'>Save Book</button>
-                    </form>
+                <h3><%= book.author %></h3>
+                <p><%= book.description %></p>
+                <form action="/add" method='post'>
+                    <fieldset>
+                        <input type="hidden" name='author' value="<%= book.title %>">
+                        <input type="hidden" name='title' value='<%= book.author%>'>
+                        <input type="hidden" name='description' value="<%= book.description%>">
+                        <input type="hidden" name='isbn' value="<%= book.isbn%>">
+                        <input type="hidden" name='img' value="<%= book.img%>">
+                    </fieldset>
+                    <button type='submit'>Save Book</button>
+                </form>
         </section>
         <% }) %>
     </main>
 
     <footer></footer>
 </body>
+
 </html>

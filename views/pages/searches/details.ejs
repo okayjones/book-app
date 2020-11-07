@@ -1,19 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/styles.css"> 
-    <link rel ="icon" type="image/png" href="/favicon.png">
-    <title>Book App</title>
+    <%- include('../../layout/head') %>
 </head>
 <body>
-    <header><a href="/">📚 Best Books! 📚</a></header>
+    <header>
+        <%- include('../../layout/header') %>
+    </header>
     <main>
         <h1>Search Results</h1>
-            <%- include("../books/detail") %> 
-    </main>
-
+        <%- include('../../books/detail') %>
+        </main>
     <footer></footer>
 </body>
 </html>
