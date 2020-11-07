@@ -1,20 +1,28 @@
-<% books.forEach(book => { %>
 <section>
   <img src="<%= book.img%>">
-  <% console.log(book) %>
   <h2><%= book.title %></h2>
   <h3><%= book.author %></h3>
-    <p><%= book.description %></p>
-    <h4>ISBN: <%= book.isbn %></h4>
-    <a href="/"><button> Show All Books</button></a>
+  <p><%= book.description %></p>
+  
+  <!-- Only shows for #detail-->
+  <h4 id="isbn">ISBN: <%= book.isbn %></h4>
+  <a href="/"><button id="showAll"> Show All Books</button></a>
+
+
+  <!-- Only shows for #index-->
+  <a href="/books/<%=book.id%>"><button id="showDetails">Show Details</button></a>
+
+
+  <!-- Only shows for #show-->
+  <form action="/add" method='post' id="saveBook">
+    <fieldset>
+      <input type="hidden" name='author' value="<%= book.title %>">
+      <input type="hidden" name='title' value='<%= book.author%>'>
+      <input type="hidden" name='description' value="<%= book.description%>">
+      <input type="hidden" name='isbn' value="<%= book.isbn%>">
+      <input type="hidden" name='img' value="<%= book.img%>">
+    </fieldset>
+    <button type='submit'>Save Book</button>
+  </form>
+  
 </section>
-<% }) %>
-
-
-<!-- TODO:
-1. Add in relevant stuff for all versions of the book display here
-2. Add an id to each main that displays books (or a div with an id?)
-3. In modules.css hide sections of this that aren't relevant depending on the id
-
-note: will also need to inlude the form (I think)
--->

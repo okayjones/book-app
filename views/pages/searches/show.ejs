@@ -12,24 +12,11 @@
 
     <main>
         <h1>Search Results</h1>
-        <% books.forEach(book => { %>
-        <section>
-            <img src="<%= book.img%>">
-            <h2><%= book.title %></h3>
-                <h3><%= book.author %></h3>
-                <p><%= book.description %></p>
-                <form action="/add" method='post'>
-                    <fieldset>
-                        <input type="hidden" name='author' value="<%= book.title %>">
-                        <input type="hidden" name='title' value='<%= book.author%>'>
-                        <input type="hidden" name='description' value="<%= book.description%>">
-                        <input type="hidden" name='isbn' value="<%= book.isbn%>">
-                        <input type="hidden" name='img' value="<%= book.img%>">
-                    </fieldset>
-                    <button type='submit'>Save Book</button>
-                </form>
-        </section>
-        <% }) %>
+        <div id="show">
+            <% books.forEach(book => { %>
+            <%- include('../../books/detail', {book: book}) %>
+            <% }) %>
+        </div>
     </main>
 
     <footer></footer>
