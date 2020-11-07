@@ -1,26 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/styles.css"> 
-    <link rel ="icon" type="image/png" href="/favicon.png">
+    <link rel="stylesheet" href="/styles/styles.css">
+    <link rel="icon" type="image/png" href="/favicon.png">
     <title>Book App</title>
 </head>
+
 <body>
     <header><a href="/">📚 Best Books! 📚</a></header>
     <main>
         <div><%= saved.length %> Saved Books</div>
         <% saved.forEach(book => { %>
-            <section>
-                <img src="<%= book.img%>">
-                <h2><%= book.title %></h3>
-                    <h3><%= book.author %></h4>
-                        <p><%= book.description %></p>
-            </section>
-            <a href="/books/<%=book.id%>">Show Details</a>
-            <% }) %>
+        <section>
+            <img src="<%= book.img%>">
+            <h2><%= book.title %></h3>
+                <h3><%= book.author %></h4>
+                    <p><%= book.description %></p>
+                    <a href="/books/<%=book.id%>"><button>Show Details</button></a>
+        </section>
+        <% }) %>
     </main>
-<footer></footer>
+    <footer></footer>
 </body>
+
 </html>
