@@ -83,12 +83,12 @@ img {
 }
 
 /* Hide extra info on index page */
-#index #showAll, #index #saveBook, #index #isbn {
+#index #saveBook, #index #isbn {
     display: none;
 }
 
 /* Hide extra info on show page */
-#show #showAll, #show #isbn, #show #showDetails {
+#show #isbn, #show #showDetails, #show input {
     display: none;
 }
 
@@ -109,4 +109,30 @@ img {
     justify-content: center;
     align-items: center;
     margin: 5px;
+}
+
+/* Modal */
+#modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    padding: 25%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+
+/* Book Edit Form */
+
+#editForm {
+    background-color: white;
+}
+
+#editForm input, #editForm label {
+    width: 100%;
+    padding: 20px;
+    font-size: .8rem;
 }
