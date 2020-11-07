@@ -6,7 +6,9 @@
 </head>
 
 <body>
-    <header><a href="/">📚 Best Books! 📚</a></header>
+    <header>
+        <%- include('../layout/header') %>
+    </header>
     <main>
         <h1><%= saved.length %> Saved Books</h1>
         <% saved.forEach(book => { %>

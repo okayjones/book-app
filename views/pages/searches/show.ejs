@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <%- include('../layout/head') %>
+    <%- include('../../layout/head') %>
 </head>
+
 <body>
-    <header><a href="/">📚 Best Books! 📚</a></header>
+    <header>
+        <%- include('../../layout/header') %>
+    </header>
 
     <main>
         <h1>Search Results</h1>
@@ -15,14 +19,14 @@
                 <h3><%= book.author %></h4>
                     <p><%= book.description %></p>
                     <form action="/add" method='post'>
-                        <fieldset> 
-                         <input type="hidden" name='author' value="<%= book.title %>">
-                         <input type="hidden" name='title' value='<%= book.author%>'>
-                         <input type="hidden" name='description' value= "<%= book.description%>">
-                         <input type="hidden" name='isbn' value= "<%= book.isbn%>">
-                         <input type="hidden" name='img' value= "<%= book.img%>">
+                        <fieldset>
+                            <input type="hidden" name='author' value="<%= book.title %>">
+                            <input type="hidden" name='title' value='<%= book.author%>'>
+                            <input type="hidden" name='description' value="<%= book.description%>">
+                            <input type="hidden" name='isbn' value="<%= book.isbn%>">
+                            <input type="hidden" name='img' value="<%= book.img%>">
                         </fieldset>
-                        <button type ='submit'>Save Book</button>
+                        <button type='submit'>Save Book</button>
                     </form>
         </section>
         <% }) %>
@@ -30,4 +34,5 @@
 
     <footer></footer>
 </body>
+
 </html>

@@ -2,12 +2,13 @@
 <html lang="en">
 
 <head>
-  <%- include('../layout/head') %>
+  <%- include('../../layout/head') %>
 </head>
 
 <body>
-  <header><a href="/">📚 Best Books! 📚</a></header>
-
+  <header>
+    <%- include('../../layout/header') %>
+  </header>
   <main>
     <form action="/searches" method="POST">
       <fieldset class="flex-container">
