@@ -10,8 +10,8 @@
         <%- include('../layout/header') %>
     </header>
     <main>
+        <h1><span id="badge"><%= saved.length %> </span>Saved Books</h1>
         <a href="/searches/new"><button>Search</button></a>
-        <h1><%= saved.length %> Saved Books</h1>
         <% saved.forEach(book => { %>
         <section>
             <img src="<%= book.img%>">
