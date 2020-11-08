@@ -11,18 +11,14 @@
     </header>
     <main>
         <h1>Book Details</h1>
-        <div class="book" id="detail">
-            <% books.forEach(book => { %>
-            <%- include('../../books/detail', {book: book}) %>
-            <div id="modal">
-                <form action="/edit/<%=book.id%>?_method=PUT" method="post" id="editForm">
+        <% books.forEach(book => { %>
+        <div id="modal">
+            <form action="/edit/<%=book.id%>?_method=PUT" method="post" id="editForm">
                 <%- include('../../books/form', {book: book}) %>
-                </form>
-            </div>
-            <button id="editButton">Update Details</button>         
-            <form action="/delete/<%=book.id%>?_method=DELETE" method="post">
-                <button type="submit">Delete Book</button> 
             </form>
+        </div>
+        <div class="book" id="detail">
+            <%- include('../../books/detail', {book: book}) %>
             <% }) %>
         </div>
         <a href="/"><button id="showAll"> Show All Books</button></a>
