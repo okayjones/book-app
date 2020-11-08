@@ -83,12 +83,12 @@ img {
 }
 
 /* Hide extra info on index page */
-#index #saveBook, #index #isbn {
+#index #saveBook, #index #isbn, #index #editButton, #index #deleteForm {
     display: none;
 }
 
 /* Hide extra info on show page */
-#show #isbn, #show #showDetails, #show input {
+#show #isbn, #show #showDetails, #show input, #show #editButton, #show #deleteForm   {
     display: none;
 }
 
@@ -120,7 +120,7 @@ img {
     top: 0;
     width: 100%;
     height: 100%;
-    padding: 25%;
+    padding: 15vh 5vh;
     overflow: auto;
     background-color: rgba(0,0,0,0.4);
 }
@@ -129,10 +129,26 @@ img {
 
 #editForm {
     background-color: white;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
 }
 
-#editForm input, #editForm label {
+#editForm fieldset {
+    width: 90%;
+    margin: 0 auto;
+    padding: 25px;
+}
+
+#editForm input,  #editForm textarea {
     width: 100%;
-    padding: 20px;
+    margin: 5px;
     font-size: .8rem;
+    resize: none;
+}
+
+#editForm button {
+    width: 80%;
+    margin: 25px auto;
 }

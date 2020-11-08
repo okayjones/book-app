@@ -3,9 +3,13 @@
   <h2><%= book.title %></h2>
   <h3><%= book.author %></h3>
   <p><%= book.description %></p>
-  
+
   <!-- Only shows for #detail-->
   <h4 id="isbn">ISBN: <%= book.isbn %></h4>
+  <button id="editButton">Update Details</button>
+  <form action="/delete/<%=book.id%>?_method=DELETE" method="post" id="deleteForm">
+    <button type="submit">Delete Book</button>
+  </form>
 
   <!-- Only shows for #index-->
   <a href="/books/<%=book.id%>"><button id="showDetails">Show Details</button></a>
@@ -22,5 +26,7 @@
     </fieldset>
     <button type='submit'>Save Book</button>
   </form>
-  
+
+
+
 </section>

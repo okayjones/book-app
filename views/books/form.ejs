@@ -1,8 +1,8 @@
 <fieldset>
     <input type="text" name='title' value="<%= book.title %>">
     <input type="text" name='author' value='<%= book.author%>'>
-    <input type="text" name='description' value="<%= book.description%>">
+    <textarea name='description' rows="5"><%= book.description%></textarea>
     <input type="text" name='isbn' value="<%= book.isbn%>">
-    <input type="text" name='img' value="<%= book.img%>">
+    <input type="url" name='img' value="<%= book.img%>">
 </fieldset>
 <button type='submit'>Save Book</button>
