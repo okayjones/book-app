@@ -20,7 +20,6 @@ Book App was built using javascript, node.js, express, dotenv, cors, ejs, and su
 ## Change Log
 <!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an examples: -->
 
-### Lab 11
 
 Number and name of feature: #1 - Load  
 Estimate of time needed to complete: 45m  
